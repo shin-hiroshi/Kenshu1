@@ -28,7 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,10 +35,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ItemCell()
+        let cell: ItemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemCell
         let item = list[indexPath.row]
-        cell.textLabel?.text = "\(String(item.id))  \(item.name)"
-        cell.lblId?.text = String(item.id)
+        cell.lblId.text = String(item.id)
         cell.lblName?.text = item.name
         return cell
     }
