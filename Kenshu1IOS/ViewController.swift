@@ -10,8 +10,8 @@ import UIKit
 import Foundation
 
 struct Item {
-    var id: Int
-    var name: String
+    let id: Int
+    let name: String
 }
 
 class ViewController: UIViewController, UITableViewDataSource {
